@@ -21,7 +21,6 @@ class Main {
             for (int i = 0; i < currSeedMap.length; i += 2) {
                 seedRanges.add(new Range(currSeedMap[i], currSeedMap[i] + currSeedMap[i + 1]));
             }
-            System.out.println(seedRanges);
 
             // Skip two lines
             reader.readLine();
@@ -35,12 +34,8 @@ class Main {
                     continue;
                 } else if (line.contains("map:")) {
                     if (!sourceRanges.isEmpty()) {
-                        List<Range> newSeedRanges = new ArrayList<>();
                         List<Range> updatedRanges = Range.mapRanges(seedRanges, sourceRanges, destinationRanges);
-                        newSeedRanges.addAll(updatedRanges);
-
-                        seedRanges = newSeedRanges;
-                        System.out.println(seedRanges);
+                        seedRanges = updatedRanges;
                     }
                     // Reset for the next set of mappings
                     sourceRanges.clear();

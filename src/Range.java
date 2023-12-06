@@ -75,7 +75,7 @@ public class Range {
             return this.end > other.end;
         return false;
     }
-    
+
     @Override
     public String toString() {
         return this.start + " " + this.end;
